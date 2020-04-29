@@ -48,8 +48,7 @@ def add_user():
 
         if check_password_hash(_hashed, c):
             id = mongo.db.login.insert({"name": a, "password": _hashed})
-            session['username'] = a
-            return render_template("show.html")
+            return render_template("show.html", a=a)
 
     return render_template("error.html")
 
